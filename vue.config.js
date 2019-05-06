@@ -8,7 +8,7 @@ try {
   testAddress = JSON.parse(process.env.npm_config_argv).original.slice(2).toString();    
 } catch (error) {
   testAddress = process.argv.slice(2).toString();
-}
+};
 const testServer = {
   test106: {
     receiver: 'http://192.168.240.147:8020/fisreceiver.php',
@@ -40,10 +40,18 @@ const testServer = {
   }
 }
 module.exports = {
-  publicPath:  isProduction ? '/' : '',
+  outputDir: process.env.outputDir,
+  publicPath:  process.env.publicPath,
   productionSourceMap: false,
   parallel: isProduction ? true : false,
   lintOnSave: true,
+  chainWebpack: config => {
+  },
+  pages: {
+    index: {
+      entry: './src/main.ts'
+    }
+  },
   devServer: {
     proxy: {
       '/misservice': {
@@ -54,7 +62,7 @@ module.exports = {
     }
   },
   configureWebpack: config => {
-    if(process.env.NODE_ENV === 'development') {
+    if(process.env.NODE_ENV === 'production') {
       if(testAddress.indexOf('test') != -1) {
         config.plugins.push(new buildUpload(testServer[testAddress]));
       }

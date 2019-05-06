@@ -1,7 +1,7 @@
 #### 项目名称
-    
+    {{name}}
 #### 项目简介
-    客服中台使用vue-cli 3.0 webpack4 typescript来搭建，特点: vue3.0”开箱即用“、webpack4”零配置“、Typescript强类型检查和面向接口编程的思想。
+    {{name}}使用vue-cli 3.0 webpack4 typescript来搭建，特点: vue3.0”开箱即用“、webpack4”零配置“、Typescript强类型检查和面向接口编程的思想。
 #### 项目目录
 - assets 存放图片 
 - api 存放接口
