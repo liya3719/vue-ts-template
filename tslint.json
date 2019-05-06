@@ -1,0 +1,39 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
+  "rules": {
+    "quotemark": [true, "single"],
+    "indent": [true, "spaces", 2],
+    "interface-name": false,
+    "ordered-imports": false,
+    "member-access": false,
+    "no-any": false,
+    "typedef-whitespace": false,
+    "whitespace": false,
+    "semicolon": false,
+    "no-inferrable-types": false,
+    "no-trailing-whitespace": false,
+    "no-irregular-whitespace": false,
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": false,
+    "no-use-before-declare": false,
+    "no-unsafe-any": false,
+    "eofline": false,
+    "no-namespace": false,
+    "no-internal-module": false,
+    "no-unused-expression": [true, "allow-fast-null-checks", "allow-tagged-template", "allow-new"],
+    "max-classes-per-file": false,
+    "no-construct": false,
+    "no-object-literal-type-assertion": false,
+    "no-console": false,
+    "no-empty-interface": false,
+    "label-position": false
+  }
+}

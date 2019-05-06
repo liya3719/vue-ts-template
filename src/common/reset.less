@@ -1,0 +1,148 @@
+@charset "utf-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑',Arial,sans-serif;;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  background-color: #F3F4F7;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  background-color: #fff;
+  _background-attachment: fixed;
+  _overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, i, em {
+  font-weight: normal;
+  font-style: normal;
+}
+
+input, button, select, textarea {
+  outline: none;
+  vertical-align: middle;
+  border: 0;
+  border-radius: 0;
+}
+
+a {
+  color: #1e1e1e;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  color: #ff9600;
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  vertical-align: middle;
+  outline: none;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  *zoom: 1;
+  *display: inline;
+}
+
+/* recommended css code for vue-svgicon */
+.svg-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  color: inherit;
+  vertical-align: middle;
+  fill: none;
+  stroke: currentColor;
+}
+
+.svg-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.svg-up {
+  /*default*/
+  transform: rotate(0deg);
+}
+
+.svg-right {
+   transform: rotate(90deg);
+}
+
+.svg-down {
+  transform: rotate(180deg);
+}
+
+.svg-left {
+  transform: rotate(-90deg);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb:horizontal { /*水平滚动条的样式*/
+	width: 5px;
+	background-color: #CCCCCC;
+	border-radius: 6px;
+}
+::-webkit-scrollbar-track-piece {
+	background-color: #fff; /*滚动条的背景颜色*/
+	border-radius: 0; /*滚动条的圆角宽度*/
+}
+::-webkit-scrollbar {
+	width: 10px; /*滚动条的宽度*/
+	height: 8px; /*滚动条的高度*/
+}
+::-webkit-scrollbar-thumb:vertical { /*垂直滚动条的样式*/
+	height: 50px;
+	background-color: #999;
+	border-radius: 4px;
+	outline: 2px solid #fff;
+	outline-offset: -2px;
+	border: 2px solid #fff;
+}
+::-webkit-scrollbar-thumb:hover { /*滚动条的hover样式*/
+	height: 50px;
+	background-color: #9f9f9f;
+    border-radius: 4px;
+}
