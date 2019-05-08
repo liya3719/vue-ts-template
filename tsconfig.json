@@ -21,7 +21,8 @@
       "./node_modules/vue/types"
     ],
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "./../element-ui/types"
     ],
     "paths": {
       "@/*": [
