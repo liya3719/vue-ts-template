@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Setting from './views/setting/app.vue';
+import HelpView from './views/help/app.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -8,6 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'main',
+      component: HelpView
     },
     // {
     //   path: '/about',
