@@ -8,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'main',
-      component: HelpView
+      component: HelpView,
     },
     // {
     //   path: '/about',
