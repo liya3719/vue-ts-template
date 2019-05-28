@@ -55,7 +55,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/misservice': {
-        target: !isProduction ? `${process.env.VUE_APP_HOST}` : '',
+        target: !isProduction ? `http://test123.suanshubang.com` : '',
         ws: true,
         changeOrigin: true
       }
