@@ -69,7 +69,8 @@ export class CommonService {
    */
   private static getNewApi(api: string): string {
     if(process.env.NODE_ENV === 'development') {
-      Cookies.set('ZYBUSS', config.ZYBUSS)
+      Cookies.set('ZYBUUAP', config.ZYBUUAP);
+      Cookies.set('PHPSESSID', config.PHPSESSID);
       return api;
     } else if(process.env.NODE_ENV === 'production') {
       return process.env.VUE_APP_HOST + api;
