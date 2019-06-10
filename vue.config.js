@@ -9,36 +9,6 @@ try {
 } catch (error) {
   testAddress = process.argv.slice(2).toString();
 };
-const testServer = {
-  test106: {
-    receiver: 'http://192.168.240.147:8020/fisreceiver.php',
-    toPath: '/home/homework/webroot/static/lark'
-  },
-  qatest23: {
-    receiver: 'http://192.168.240.196:8020/fisreceiver.php',
-    toPath: '/home/homework/webroot/static/lark'
-  },
-  test100: {
-    receiver: 'http://192.168.240.125:8020/fisreceiver.php',
-    toPath: '/home/homework/webroot/static/lark'
-  },
-  test77: {
-    receiver: 'http://192.168.240.25:8020/fisreceiver.php',
-    toPath: '/home/homework/webroot/static/lark'
-  },
-  test211: {
-    receiver: 'http://lichen02-docker.suanshubang.com/fisreceiver.php',
-    toPath: '/home/homework/webroot/static/lark'
-  },
-  test256: {
-    receiver: 'http://192.168.241.74:8020/fisreceiver.php',
-    toPath: '/home/homework/webroot/static/lark'
-  },
-  test222: {
-    receiver: 'http://wangshukun-docker.suanshubang.com/fisreceiver.php',
-    toPath: '/home/homework/webroot/static/lark'
-  }
-}
 module.exports = {
   outputDir: process.env.outputDir,
   publicPath:  process.env.publicPath,
@@ -50,22 +20,6 @@ module.exports = {
   pages: {
     index: {
       entry: './src/main.ts'
-    }
-  },
-  devServer: {
-    proxy: {
-      '/misservice': {
-        target: !isProduction ? `http://test123.suanshubang.com` : '',
-        ws: true,
-        changeOrigin: true
-      }
-    }
-  },
-  configureWebpack: config => {
-    if(process.env.NODE_ENV === 'production') {
-      if(testAddress.indexOf('test') != -1) {
-        config.plugins.push(new buildUpload(testServer[testAddress]));
-      }
     }
   }
 }
