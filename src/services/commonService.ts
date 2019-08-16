@@ -11,7 +11,7 @@ export class CommonService {
    * @desc get请求
    * @return Promise<?any>;
    */
-  public static _get(api:string, params ?:any ) {
+  public static _get(api:string, params :any ) {
     const newApi = this.getNewApi(api);
     try {
       return new Promise((resolve, reject) => {
@@ -39,7 +39,7 @@ export class CommonService {
    * @desc post请求
    * @return Promise<?any>;
    */
-  public static _post(api:string, data ?:any) {
+  public static _post(api:string, data :any) {
     const newApi = this.getNewApi(api);
     try {
       return new Promise((resolve, reject) => {
