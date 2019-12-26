@@ -17,9 +17,9 @@ let testServer = {
 }
 let reg = /^test?(\d+)$/g;
 if(reg.test(testAddress)) {
-   targetAddress = testAddress ? `https://${testAddress}.suanshubang.com` : `本地mock服务地址`;
+   targetAddress = testAddress ? `testAddress` : `本地mock服务地址`;
 } else {
-  targetAddress = testAddress ? `https://${testAddress}-docker.suanshubang.com` : `本地mock服务地址`;
+  targetAddress = testAddress ? `testAddress` : `本地mock服务地址`;
 }
 module.exports = {
   outputDir: process.env.outputDir,
