@@ -28,6 +28,16 @@ module.exports = {
   parallel: isProduction ? true : false,
   lintOnSave: true,
   chainWebpack: config => {
+    config.resolve.alias
+      .set('@interface', resolve('src/interface'))
+      .set('@model', resolve('src/model'))
+      .set('@service', resolve('src/services'))
+    config.module
+      .rule('fonts')
+      .use('url-loader')
+      .tap(options => {
+        return options;
+      });
   },
   pages: {
     index: {
