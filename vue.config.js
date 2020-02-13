@@ -1,6 +1,7 @@
 /**
  * vue.config基本配置
  */
+const path = require('path');
 const buildUpload = require('./src/common/buildUpload');
 const isProduction = process.env.NODE_ENV === 'production';
 let testAddress, targetAddress;
@@ -20,6 +21,9 @@ if(reg.test(testAddress)) {
    targetAddress = testAddress ? `testAddress` : `本地mock服务地址`;
 } else {
   targetAddress = testAddress ? `testAddress` : `本地mock服务地址`;
+};
+function resolve(dir) {
+  return path.join(__dirname, dir);
 }
 module.exports = {
   outputDir: process.env.outputDir,
