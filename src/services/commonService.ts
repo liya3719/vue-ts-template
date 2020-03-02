@@ -12,7 +12,6 @@ export class CommonService {
    * @return Promise<?any>;
    */
   public static _get(api:string, params :any ) {
-    const newApi = this.getNewApi(api);
     try {
       return new Promise((resolve, reject) => {
         axios({
@@ -40,7 +39,6 @@ export class CommonService {
    * @return Promise<?any>;
    */
   public static _post(api:string, data :any) {
-    const newApi = this.getNewApi(api);
     try {
       return new Promise((resolve, reject) => {
         axios({
@@ -61,19 +59,6 @@ export class CommonService {
       })
     } catch (error) {
       console.log(`from ${api} _post method error__________${JSON.stringify(error)}`);
-    }
-  }
-  /**
-   * @desc 根据环境变量返回Api信息
-   * @return string
-   */
-  private static getNewApi(api: string): string {
-    if(process.env.NODE_ENV === 'development') {
-      Cookies.set('ZYBUUAP', config.ZYBUUAP);
-      Cookies.set('PHPSESSID', config.PHPSESSID);
-      return api;
-    } else if(process.env.NODE_ENV === 'production') {
-      return process.env.VUE_APP_HOST + api;
     }
   }
 }
