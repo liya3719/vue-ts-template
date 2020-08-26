@@ -1,6 +1,4 @@
 import axios from 'axios';
-import config from '../config';
-import Cookies from 'js-cookie';
 axios.defaults.withCredentials = true;
 /**
  * @class CommonSerivce
@@ -15,7 +13,7 @@ export class CommonService {
     try {
       return new Promise((resolve, reject) => {
         axios({
-          url: newApi,
+          url: api,
           method: 'GET',
           params,
           headers: {
