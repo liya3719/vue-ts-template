@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'qs';
 axios.defaults.withCredentials = true;
 /**
  * @class CommonSerivce
@@ -42,7 +43,7 @@ export class CommonService {
         axios({
           url: api,
           method: 'POST',
-          data,
+          data: qs.stringify(data),
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
