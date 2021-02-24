@@ -16,6 +16,21 @@ if(reg.test(testAddress)) {
 } else {
   targetAddress = testAddress ? `testAddress` : `本地mock服务地址`;
 };
+function addExtraCookies(cookies) {
+  return Object.entries(extraCookies).reduce((cookies, [key, value]) => {
+    let newCookie = `${key}=${value}`;
+    if (cookies) {
+      const regCookie = new RegExp(`(^| )(${key}=[^;]*)(;|$)`);
+
+      if (cookies.match(regCookie)) {
+        newCookie = cookies.replace(regCookie, `$1${newCookie}$3`);
+      } else {
+        newCookie += `; ${cookies}`;
+      }
+    }
+    return newCookie;
+  }, cookies);
+}
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -27,9 +42,13 @@ module.exports = {
   lintOnSave: true,
   chainWebpack: config => {
     config.resolve.alias
-      .set('@interface', resolve('src/interface'))
-      .set('@model', resolve('src/model'))
-      .set('@service', resolve('src/services'))
+      .set("@api", resolve("src/api"))
+      .set("@components", resolve("src/components"))
+      .set("@common", resolve("src/common"))
+      .set("@enum", resolve("src/enum"))
+      .set("@interface", resolve("src/interface"))
+      .set("@model", resolve("src/model"))
+      .set("@service", resolve("src/services"));
     config.module
       .rule('fonts')
       .use('url-loader')
@@ -47,7 +66,13 @@ module.exports = {
       '/test': {
         target: !isProduction ? targetAddress : '',
         ws: true,
-        changeOrigin: true
+        changeOrigin: true,
+        onProxyReq: (proxyReq) => {
+          proxyReq.setHeader(
+            "Cookie",
+            addExtraCookies(proxyReq.getHeader("Cookie") || "")
+          );
+        },
       }
     }
   },

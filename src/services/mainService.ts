@@ -1,7 +1,7 @@
 import { Service } from 'typedi';
 import { IMainInterface } from '../interface/IMainService';
 import { CommonService } from './commonService';
-import main from '../api/main';
+import main from '../api/apis';
 /**
  * 系统设置service
  */

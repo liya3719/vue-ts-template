@@ -22,7 +22,6 @@
     ],
     "types": [
       "webpack-env",
-      "./../element-ui/types"
     ],
     "paths": {
       "@/*": [
