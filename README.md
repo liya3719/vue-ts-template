@@ -29,10 +29,3 @@
     #### 代码检查修复
     npm run lint
 ```
-
-#### 参考文档
-See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
-
-[downloads-image]: http://img.shields.io/npm/dm/co.svg?style=flat-square
-[downloads-url]: https://github.com/liya3719/vue-ts-template
