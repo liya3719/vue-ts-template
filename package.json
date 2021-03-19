@@ -6,6 +6,7 @@
   "author": "{{author}}",
   "scripts": {
     "serve": "vue-cli-service serve --open --config",
+    "dev": "npm run serve",
     "build": "vue-cli-service build",
     {{#if gitflow}}"init": "node gitflow"{{/if}}
     "lint": "vue-cli-service lint"
@@ -17,6 +18,7 @@
     "reflect-metadata": "^0.1.13",
     "vue": "^2.6.10",
     "vuex": "^3.1.0",
+    "vue-tsx-support": "^3.1.0",
     {{#if gitflow}}"btf-middleware-gitflow": "1.0.0" {{/if}}
     "vue-router": "^3.0.6"
   },
