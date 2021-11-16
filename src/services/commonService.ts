@@ -1,6 +1,6 @@
 import axios from "axios";
 import qs from "qs";
-import { ResponseCode, ResponseErrorCode } from '@/enums/responseCode';
+import { ResponseCode, ResponseErrorCode } from '@/enum/responseCode';
 import { IResponseInterface } from '@/api/types/IResponseInterface';
 
 /* ==================== 取消重复请求，参考使用 =================== */
