@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelpView from './views/help/app.vue';
+import HelpView from '../views/help/app.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -10,6 +10,11 @@ export default new Router({
       name: 'main',
       component: HelpView,
     },
+    {
+      path: '/tsx',
+      name: 'tsx',
+      component: () => import(/* webpackChunkName: "tsx" */ '../views/support-tsx/app')
+    }
     // {
     //   path: '/about',
     //   name: 'about',
