@@ -47,7 +47,6 @@ module.exports = {
       .set("@common", resolve("src/common"))
       .set("@enum", resolve("src/enum"))
       .set("@interface", resolve("src/interface"))
-      .set("@model", resolve("src/model"))
       .set("@service", resolve("src/services"));
     config.module
       .rule('fonts')
