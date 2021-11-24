@@ -9,7 +9,6 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { Container } from 'typedi';
-import { IMainInterface } from '../../interface/IMainService';
 import { MainService } from '../../services/mainService';
 
 @Component
@@ -18,7 +17,7 @@ export default class HelpView extends Vue {
       this.init()
     }
     private async init() {
-      const result = await Container.get<IMainInterface>(MainService).getMain();
+      const result = await Container.get(MainService).getMain();
     }
 }
 </script>
