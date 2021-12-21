@@ -2,20 +2,18 @@
  * vue.config基本配置
  */
 const path = require('path');
+const webpack = require('webpack');
+const extraCookies = require('./src/common/cookies');
 const isProduction = process.env.NODE_ENV === 'production';
-let testAddress, targetAddress;
+let testAddress;
 try {
   testAddress = JSON.parse(process.env.npm_config_argv).original.slice(2).toString();    
 } catch (error) {
   testAddress = process.argv.slice(2).toString();
 };
 
-let reg = /^test?(\d+)$/g;
-if(reg.test(testAddress)) {
-   targetAddress = testAddress ? `testAddress` : `本地mock服务地址`;
-} else {
-  targetAddress = testAddress ? `testAddress` : `本地mock服务地址`;
-};
+const targetAddress = testAddress ? `testAddress` : `本地mock服务地址`;
+
 function addExtraCookies(cookies) {
   return Object.entries(extraCookies).reduce((cookies, [key, value]) => {
     let newCookie = `${key}=${value}`;
@@ -42,12 +40,7 @@ module.exports = {
   lintOnSave: true,
   chainWebpack: config => {
     config.resolve.alias
-      .set("@api", resolve("src/api"))
-      .set("@components", resolve("src/components"))
-      .set("@common", resolve("src/common"))
-      .set("@enum", resolve("src/enum"))
-      .set("@interface", resolve("src/interface"))
-      .set("@service", resolve("src/services"));
+      .set("@", resolve("src"))
     config.module
       .rule('fonts')
       .use('url-loader')
@@ -76,7 +69,8 @@ module.exports = {
     }
   },
   configureWebpack: config => {
-    if(process.env.NODE_ENV === 'production') {
-    }
+    config.plugins.push(new webpack.DefinePlugin({
+      'is_test': isTest
+    }))
   }
 }

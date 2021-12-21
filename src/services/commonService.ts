@@ -2,7 +2,9 @@ import axios from "axios";
 import qs from "qs";
 import { ResponseCode, ResponseErrorCode } from '@/enum/responseCode';
 import { IResponseInterface } from '@/api/types/IResponseInterface';
-
+interface RequestHeader {
+  [key: string]: string;
+}
 /* ==================== 取消重复请求，参考使用 =================== */
 const pendingRequest = new Map();
 const generateReqKey = (config: any) => {
@@ -32,9 +34,6 @@ const removePendingRequest = (config: any) => {
 const instance = axios.create({
   timeout: 10000,
   withCredentials: true,
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-  }
 });
 // 请求拦截
 instance.interceptors.request.use((config: any) => {
@@ -58,7 +57,7 @@ instance.interceptors.response.use((res: any) => {
 }, (error: any) => {
   removePendingRequest(error.config || {});
   if(axios.isCancel(error)) {
-    console.log(`已取消的重复请求 ---->${error.message}`);
+    console.log(`已取消的重复请求 ---->${error}`);
   } else {
     const status = error.response.status;
     switch (status) {
@@ -99,13 +98,17 @@ export class CommonService {
    * @desc get请求
    * @return Promise<?any>;
    */
-  public static _get(api: string, params: any) {
+  public static _get(api: string, params: any, headers?: RequestHeader) {
     try {
       return new Promise<IResponseInterface>((resolve, reject) => {
         instance({
           url: api,
           method: 'GET',
-          params: params,
+          params,
+          headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+          }
         }).then((res: any) => {
           resolve(res);
         }).catch((err: any) => {
@@ -125,13 +128,17 @@ export class CommonService {
    * @desc post请求
    * @return Promise<?any>;
    */
-  public static _post(api: string, data: any) {
+  public static _post(api: string, data: any, headers?: RequestHeader) {
     try {
       return new Promise<IResponseInterface>((resolve, reject) => {
         instance({
           url: api,
           method: "POST",
-          data: data
+          data,
+          headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+          }
         })
           .then((res: any) => {
             resolve(res);

@@ -1,9 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import HelpView from '../views/help/app.vue';
+import { isDev } from '@/common/global-data';
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
+  base: isDev ? '/' : '/name/view',
   routes: [
     {
       path: '/',

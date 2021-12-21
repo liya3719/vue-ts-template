@@ -1,5 +1,5 @@
 /**
- * 框架主体接口
+ * 这是例子，可以删除
  */
 export interface IMainInterface {
     /**
