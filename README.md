@@ -3,12 +3,17 @@
 #### 项目简介
     {{name}}使用vue-cli 3.0 webpack4 typescript来搭建，特点: vue3.0”开箱即用“、webpack4”零配置“、Typescript强类型检查和面向接口编程的思想。
 #### 项目目录
-- assets 图片 
+- assets 静态资源
+    - css css文件
+    - fonts 字体文件
+    - images 图片
 - api 接口
+    - types 接口类型定义
 - common 项目公用函数
 - components 组件
-- fonts 字体
-- interface 定义的接口
+- enums 类型枚举
+- router 路由
+- interface 接口定义
 - services 服务实现
 - views 视图
 #### 运行项目
